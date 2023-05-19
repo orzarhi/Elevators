@@ -1,0 +1,27 @@
+@mixin fullSize(){
+    width: 100%;
+    height: 100%;
+}
+
+.elevator-grid{
+    $bgColor: #323232; 
+    $borderColor: #efefef;
+    $borderWidth: 2px;
+    width: 80vmin;
+    aspect-ratio: 1;
+    border: $borderWidth solid $borderColor;
+    
+    .overlay{
+        @include fullSize();
+        background-color: $borderColor;
+        display: grid;
+        grid-template-columns: repeat(var(--elevators,auto-fit), 1fr);
+        grid-template-rows: repeat(var(--levels,auto-fit), 1fr);
+        gap: $borderWidth;
+
+        &-cell{
+            @include fullSize();
+            background-color: $bgColor;
+        }
+    }   
+}
